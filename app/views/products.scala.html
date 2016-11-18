@@ -1,4 +1,7 @@
+@(Products:List[models.Product])
 <!-- Pass page title and content {html between braces} to the main view -->
+
+
 @main("Products") {
   <!-- HTML content for the index view -->
   <div class="row">
@@ -21,6 +24,15 @@
           </tr>
           </thead>
           <tbody>
+
+  @for(p <- Products) {
+     <tr>
+   <td class="numeric" >@p.getId</td>
+   <td>@p.getName</td>
+  <td>@p.getDescription</td>
+ <td class= "numeric">@p.getstock</td>
+<td class ="numeric">&euro;@("%.2f".format(p.getprice))</td>
+</tr>
             <!-- Product row(s) -->
             <tr>
               <td>1</td>
@@ -38,9 +50,14 @@
               <td>10</td>
               <td>89.00</td>
             </tr>
+}
           </tbody>
         </table>
       </div>
   </div>
-  <!-- End of content for main -->
 }
+
+
+
+  <!-- End of content for main -->
+
